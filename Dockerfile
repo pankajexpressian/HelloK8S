@@ -1,9 +1,13 @@
-FROM node:13-alpine
+FROM node:lts-alpine3.16
 
-RUN mkdir home/app
+WORKDIR /app
 
-COPY . /home/app
+COPY package*.json ./app
 
 RUN npm install
 
-CMD ["node","index.js"]
+COPY . /app
+
+EXPOSE 3333
+
+CMD ["npm", "start"]
