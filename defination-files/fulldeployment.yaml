@@ -16,6 +16,17 @@ spec:
       containers:
         - name: nodeapp-container
           image: pankajexpressian/nodeapp3:1
+          env:
+            - name: APP_USER_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: myconfig
+                  key: myconfig.username
+            - name: APP_USER_EMAIL
+              valueFrom:
+                configMapKeyRef:
+                  name: myconfig
+                  key: myconfig.email
 ---
 apiVersion: v1
 kind: Service
