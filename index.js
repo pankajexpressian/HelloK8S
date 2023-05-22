@@ -24,5 +24,20 @@ app.listen(port, () => {
 });
 
 function getEnvVariables() {
+  try {
+    console.log("------------------------");
+    console.log("This is from configmap");
+    console.log(process.env.APP_USER_NAME);
+    console.log(process.env.APP_USER_EMAIL);
+    console.log("------------------------");
+    console.log("\n\n");
+    console.log("------------------------");
+    console.log("This is from configmap");
+    console.log(process.env.USER_NAME);
+    console.log(process.env.PASSWORD);
+    console.log("------------------------");
+  } catch (error) {
+    console.log("Error reading the evnt variables");
+  }
   return process.env;
 }

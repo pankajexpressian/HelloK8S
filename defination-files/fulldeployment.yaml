@@ -27,6 +27,16 @@ spec:
                 configMapKeyRef:
                   name: myconfig
                   key: myconfig.email
+            - name: USER_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: mysecret
+                  key: mysecret.username
+            - name: PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysecret
+                  key: mysecret.password
 ---
 apiVersion: v1
 kind: Service
